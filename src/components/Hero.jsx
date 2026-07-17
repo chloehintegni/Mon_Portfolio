@@ -108,7 +108,7 @@ function Hero() {
 
         <Reveal delay={150}>
           <Row>
-            <Col xs={12} className="mt-5 hero__editor-col" style={{ width: "800px" }}>
+            <Col xs={12} lg={8} className="mt-5 hero__editor-col" style={{ maxWidth: "800px" }}>
               <div className="hero__editor float float--slow">
                 <div className="hero__editor-bar">
                   <span className="hero__editor-dot" style={{ background: "#ff5f57" }} />
