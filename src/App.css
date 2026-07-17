@@ -208,15 +208,19 @@
 
 .hero__editor-col {
   width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
 }
 
 @media (min-width: 768px) {
   .hero__editor-col {
-    width: 75%;
+    width: min(100%, 800px);
   }
 }
 
 .hero__editor {
+  width: 100%;
+  max-width: 100%;
   background: var(--editor-bg);
   border-radius: 10px;
   overflow: hidden;
@@ -253,7 +257,9 @@
 
 .hero__line {
   margin: 0 0 0.35rem 0;
-  white-space: pre;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
   color: var(--editor-ink);
 }
 
