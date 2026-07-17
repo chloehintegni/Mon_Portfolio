@@ -1,0 +1,79 @@
+:root {
+  /* Couleurs - bleu & blanc, dégradé */
+  --bg-top: #FFFFFF;
+  --bg-bottom: #DCEBFC;
+  --bg-panel: #FFFFFF;
+  --bg-panel-alt: #EFF5FC;
+  --ink: #0B1F3A;
+  --ink-dim: #5B7091;
+  --gold: #2563EB;
+  --gold-soft: #60A5FA;
+  --teal: #1E40AF;
+  --border-subtle: rgba(11, 31, 58, 0.1);
+
+  /* Le bloc "éditeur de code" du hero reste sombre pour le contraste */
+  --editor-bg: #0B2545;
+  --editor-bar: #071A33;
+  --editor-ink: #E7EFFC;
+  --editor-ink-dim: #8FAAD1;
+
+  /* Typo */
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(160deg, var(--bg-top) 0%, var(--bg-bottom) 50%, var(--bg-top) 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--teal);
+}
+
+::selection {
+  background: var(--gold);
+  color: #FFFFFF;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
