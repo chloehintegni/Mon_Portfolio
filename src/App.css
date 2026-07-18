@@ -253,7 +253,7 @@
 .hero__code {
   padding: 1.5rem;
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: clamp(0.68rem, 2.6vw, 0.9rem);
   overflow-x: auto;
 }
 
@@ -872,5 +872,14 @@
   }
   .hero {
     padding: 3rem 1.25rem 2.5rem;
+  }
+  .hero__code {
+    padding: 1rem;
+  }
+  .hero__editor-bar {
+    padding: 0.55rem 0.75rem;
+  }
+  .hero__editor-filename {
+    font-size: 0.7rem;
   }
 }
