@@ -1,22 +1,24 @@
 import { Container, Row, Col } from "react-bootstrap"
-import { profile } from "../data/content"
 import Reveal from "./Reveal"
+import { useContent } from "../hooks/useContent"
 
 function About() {
+  const { profile, ui } = useContent()
+
   return (
     <section id="about" className="section">
       <Container>
         <Reveal>
           <Row>
             <Col xs={12}>
-              <p className="section__eyebrow">// À propos</p>
-              <h2 className="section__title">Qui je suis</h2>
+              <p className="section__eyebrow">{ui.about.eyebrow}</p>
+              <h2 className="section__title">{ui.about.title}</h2>
             </Col>
           </Row>
         </Reveal>
         <Reveal delay={100}>
-          <Row>
-            <Col md={9} lg={8} className="mx-auto">
+          <Row className="justify-content-center">
+            <Col md={9} lg={8} className="text-center">
               <p className="about__bio">{profile.bio}</p>
             </Col>
           </Row>

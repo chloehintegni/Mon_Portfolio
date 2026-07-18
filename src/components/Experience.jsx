@@ -1,17 +1,19 @@
 import { Container, Row, Col } from "react-bootstrap"
 import { Briefcase, Calendar } from "lucide-react"
-import { experience, education } from "../data/content"
 import Reveal from "./Reveal"
+import { useContent } from "../hooks/useContent"
 
 function Experience() {
+  const { experience, education, ui } = useContent()
+
   return (
     <section id="experience" className="section">
       <Container>
         <Reveal>
           <Row className="justify-content-center">
-            <Col xs={12} >
-              <p className="section__eyebrow">// Parcours</p>
-              <h2 className="section__title">Expérience & formation</h2>
+            <Col xs={12}>
+              <p className="section__eyebrow">{ui.experience.eyebrow}</p>
+              <h2 className="section__title">{ui.experience.title}</h2>
             </Col>
           </Row>
         </Reveal>
@@ -53,10 +55,10 @@ function Experience() {
         </Row>
 
         <Reveal delay={experience.length * 100}>
-          <Row className="d-flex justify-content-center g-4">
-            <Col xs={12} lg={9}>
-              <h3 className="experience__sub text-center mb-4">Formation</h3>
-              <ul className="education__list ">
+          <Row className="justify-content-center">
+            <Col xs={12} md={10} lg={8} className="text-center">
+              <h3 className="experience__sub">{ui.experience.formation}</h3>
+              <ul className="education__list list-unstyled">
                 {education.map((item) => (
                   <li key={item.title}>
                     <strong>{item.title}</strong>

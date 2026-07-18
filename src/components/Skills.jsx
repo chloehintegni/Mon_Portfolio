@@ -1,20 +1,21 @@
 import { Container, Row, Col } from "react-bootstrap"
 import Reveal from "./Reveal"
-import { skills } from "../data/content"
 import { SKILL_ICONS, SKILL_ICON_COLORS } from "../data/skillIcons"
+import { useContent } from "../hooks/useContent"
 
 // Fait varier légèrement la durée et le décalage du flottement
 // pour que les cartes ne bougent pas toutes de façon synchronisée.
 const FLOAT_VARIANTS = ["", "float--slow", "float--fast"]
 
 function Skills() {
+  const { skills, ui } = useContent()
   return (
     <Reveal as="section" id="skills" className="section">
       <Container>
         <Row>
           <Col xs={12}>
-            <p className="section__eyebrow">// Compétences</p>
-            <h2 className="section__title">Ma boîte à outils</h2>
+            <p className="section__eyebrow">{ui.skills.eyebrow}</p>
+            <h2 className="section__title">{ui.skills.title}</h2>
           </Col>
         </Row>
 

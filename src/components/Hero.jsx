@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { Container, Row, Col } from "react-bootstrap"
-import { profile } from "../data/content"
 import photo from "../assets/Moi.jpeg"
 import Reveal from "./Reveal"
+import { useContent } from "../hooks/useContent"
 
-const CODE_LINES = [
+const CODE_LINES = (profile) => [
   [{ t: "const", cls: "hero__kw" }, { t: " dev " }, { t: "=", cls: "hero__op" }, { t: " {" }],
   [{ t: "  name: " }, { t: `"${profile.name}"`, cls: "hero__str" }, { t: "," }],
   [{ t: "  role: " }, { t: `"${profile.title}"`, cls: "hero__str" }, { t: "," }],
@@ -32,6 +32,8 @@ function useTypewriter(lines) {
     let lineIndex = 0
     let charIndex = 0
     const built = []
+    setRenderedLines([])
+    setIsDone(false)
 
     const step = () => {
       const fullLine = lines[lineIndex]
@@ -56,7 +58,8 @@ function useTypewriter(lines) {
 
     timeoutRef.current = setTimeout(step, 300)
     return () => clearTimeout(timeoutRef.current)
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lines])
 
   return { renderedLines, isDone }
 }
@@ -76,30 +79,32 @@ function sliceSegments(segments, count) {
 }
 
 function Hero() {
-  const { renderedLines, isDone } = useTypewriter(CODE_LINES)
+  const { profile, ui } = useContent()
+  const codeLines = useMemo(() => CODE_LINES(profile), [profile])
+  const { renderedLines, isDone } = useTypewriter(codeLines)
 
   return (
     <section id="hero" className="hero">
       <Container className="d-flex flex-column align-items-center">
         <Reveal>
-          <Row className="align-items-center hero__top">
+          <Row className="justify-content-center align-items-center hero__top">
             <Col xs="auto">
               <img src={photo} alt={profile.name} className="hero__photo float" />
             </Col>
             <Col className="hero__intro">
               <h1 className="hero__title">
-                Bonjour, je suis <span className="hero__accent">Chloé</span>.
+                {ui.hero.greeting} <span className="hero__accent">Chloé</span>.
               </h1>
               <p className="hero__tagline">{profile.tagline}</p>
               <div className="hero__actions">
                 <a href="#projects" className="btn btn--primary">
-                  Voir mes projets
+                  {ui.hero.ctaProjects}
                 </a>
                 <a href="#contact" className="btn btn--ghost">
-                  Me contacter
+                  {ui.hero.ctaContact}
                 </a>
                 <a href="/files/CV_Chloe_Hintegni.pdf" download className="btn btn--ghost">
-                  Télécharger mon CV
+                  {ui.hero.ctaCV}
                 </a>
               </div>
             </Col>
@@ -114,7 +119,7 @@ function Hero() {
                   <span className="hero__editor-dot" style={{ background: "#ff5f57" }} />
                   <span className="hero__editor-dot" style={{ background: "#febc2e" }} />
                   <span className="hero__editor-dot" style={{ background: "#28c840" }} />
-                  <span className="hero__editor-filename">Home.jsx</span>
+                  <span className="hero__editor-filename">Home</span>
                 </div>
                 <div className="hero__code">
                   {renderedLines.map((line, i) => (

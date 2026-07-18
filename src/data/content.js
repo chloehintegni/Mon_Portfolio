@@ -10,6 +10,7 @@ export const profile = {
   bio: "Développeuse web junior diplômée d'une Licence en Architecture Logicielle (ESGIS Bénin). Actuellement en apprentissage avancé chez RightCom, où je contribue au frontend d'une plateforme SaaS de planification et de gestion de rendez-vous. Curieuse et rigoureuse, j'aime comprendre un problème en profondeur avant de coder la solution.",
   email: "hintegnijeannemarie@gmail.com",
   phone: "+229 01 54 91 96 45",
+  whatsapp: "+229 01 40 54 26 21",
   github: "https://github.com/JeanneMarieHINTEGNI",
   linkedin: "https://www.linkedin.com/in/jeanne-marie-hintegni-b88277319/",
 }

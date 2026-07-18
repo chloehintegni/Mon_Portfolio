@@ -1,16 +1,18 @@
 import { Container, Row, Col } from "react-bootstrap"
-import { projects } from "../data/content"
 import Reveal from "./Reveal"
+import { useContent } from "../hooks/useContent"
 
 function Projects() {
+  const { projects, ui } = useContent()
+
   return (
     <section id="projects" className="section">
       <Container>
         <Reveal>
           <Row>
             <Col xs={12}>
-              <p className="section__eyebrow">// Projets</p>
-              <h2 className="section__title">Ce que j'ai construit</h2>
+              <p className="section__eyebrow">{ui.projects.eyebrow}</p>
+              <h2 className="section__title">{ui.projects.title}</h2>
             </Col>
           </Row>
         </Reveal>
@@ -41,7 +43,7 @@ function Projects() {
                       rel="noreferrer"
                       className="project-card__link"
                     >
-                      Voir la démo →
+                      {ui.projects.demo} →
                     </a>
                   )}
                   {project.link && (
@@ -51,7 +53,7 @@ function Projects() {
                       rel="noreferrer"
                       className="project-card__link"
                     >
-                      Voir le code sur GitHub →
+                      {ui.projects.code} →
                     </a>
                   )}
                 </div>

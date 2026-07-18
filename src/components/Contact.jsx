@@ -2,17 +2,16 @@ import { useState } from "react"
 import { Container, Row, Col, Form, FloatingLabel, Button, Spinner } from "react-bootstrap"
 import emailjs from "@emailjs/browser"
 import { Mail, Phone } from "lucide-react"
-import { GithubIcon, LinkedinIcon } from "./icons/BrandIcons"
-import { profile } from "../data/content"
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from "./icons/BrandIcons"
 import Reveal from "./Reveal"
+import { useContent } from "../hooks/useContent"
 
-// Valeurs lues depuis .env (voir .env.example) plutôt que codées en dur,
-// pour pouvoir changer de config sans toucher au code.
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 function Contact() {
+  const { profile, ui } = useContent()
   const [form, setForm] = useState({ name: "", email: "", message: "" })
   const [status, setStatus] = useState(null) // null | "sending" | "success" | "error"
 
@@ -46,51 +45,47 @@ function Contact() {
 
   return (
     <section id="contact" className="section section--contact">
-      <Container className="d-flex flex-column align-items-center">
+      <Container>
         <Reveal>
-          <Row>
-            <Col xs={12}>
-              <p className="section__eyebrow">// Contact</p>
-              <h2 className="section__title">Discutons</h2>
-              <p className="contact__lead">
-                Je suis à la recherche d'une opportunité pour continuer à apprendre et contribuer
-                à des projets concrets. Écris-moi directement via le formulaire, ou par un autre
-                canal.
-              </p>
+          <Row className="justify-content-center">
+            <Col xs={12} md={9} lg={7} className="text-center">
+              <p className="section__eyebrow">{ui.contact.eyebrow}</p>
+              <h2 className="section__title">{ui.contact.title}</h2>
+              <p className="contact__lead">{ui.contact.lead}</p>
             </Col>
           </Row>
         </Reveal>
 
-        <Row className=" g-4">
+        <Row className="d-flex flex-column g-4 align-items-center">
           <Reveal as={Col} xs={12} md={7} delay={100}>
             <Form className="contact-form" onSubmit={handleSubmit}>
-              <FloatingLabel controlId="name" label="Nom" className="mb-3">
+              <FloatingLabel controlId="name" label={ui.contact.name} className="mb-3">
                 <Form.Control
                   type="text"
                   name="name"
-                  placeholder="Ton nom"
+                  placeholder={ui.contact.namePlaceholder}
                   required
                   value={form.name}
                   onChange={handleChange}
                 />
               </FloatingLabel>
 
-              <FloatingLabel controlId="email" label="Email" className="mb-3">
+              <FloatingLabel controlId="email" label={ui.contact.email} className="mb-3">
                 <Form.Control
                   type="email"
                   name="email"
-                  placeholder="ton@email.com"
+                  placeholder={ui.contact.emailPlaceholder}
                   required
                   value={form.email}
                   onChange={handleChange}
                 />
               </FloatingLabel>
 
-              <FloatingLabel controlId="message" label="Message" className="mb-3">
+              <FloatingLabel controlId="message" label={ui.contact.message} className="mb-3">
                 <Form.Control
                   as="textarea"
                   name="message"
-                  placeholder="Ton message"
+                  placeholder={ui.contact.messagePlaceholder}
                   required
                   value={form.message}
                   onChange={handleChange}
@@ -106,22 +101,21 @@ function Contact() {
                 {status === "sending" ? (
                   <>
                     <Spinner animation="border" size="sm" className="me-2" />
-                    Envoi en cours…
+                    {ui.contact.sending}
                   </>
                 ) : (
-                  "Envoyer le message"
+                  ui.contact.send
                 )}
               </Button>
 
               {status === "success" && (
                 <p className="contact-form__status contact-form__status--success">
-                  Message envoyé ! Je te réponds au plus vite.
+                  {ui.contact.success}
                 </p>
               )}
               {status === "error" && (
                 <p className="contact-form__status contact-form__status--error">
-                  Un souci est survenu. Vérifie ta configuration EmailJS, ou contacte-moi
-                  directement par email.
+                  {ui.contact.error}
                 </p>
               )}
             </Form>
@@ -138,11 +132,15 @@ function Contact() {
                 <span>{profile.phone}</span>
               </a>
               <a
-                href={profile.github}
+                href={`https://wa.me/${profile.whatsapp.replace(/[\s+]/g, "")}`}
                 target="_blank"
                 rel="noreferrer"
                 className="contact__link"
               >
+                <WhatsappIcon size={18} aria-hidden="true" />
+                <span>{ui.contact.whatsapp}</span>
+              </a>
+              <a href={profile.github} target="_blank" rel="noreferrer" className="contact__link">
                 <GithubIcon size={18} />
                 <span>GitHub</span>
               </a>

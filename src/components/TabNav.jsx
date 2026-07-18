@@ -2,17 +2,20 @@ import { useEffect, useState } from "react"
 import { Navbar, Nav, Container } from "react-bootstrap"
 import { Home, User, Wrench, FolderGit2, Briefcase, Mail } from "lucide-react"
 import ThemeToggle from "./ThemeToggle"
+import LanguageToggle from "./LanguageToggle"
+import { useContent } from "../hooks/useContent"
 
 const TABS = [
-  { id: "hero", label: "Home", icon: Home },
-  { id: "about", label: "About", icon: User },
-  { id: "skills", label: "Skills", icon: Wrench },
-  { id: "projects", label: "Projects", icon: FolderGit2 },
-  { id: "experience", label: "Experience", icon: Briefcase },
-  { id: "contact", label: "Contact", icon: Mail },
+  { id: "hero", icon: Home },
+  { id: "about", icon: User },
+  { id: "skills", icon: Wrench },
+  { id: "projects", icon: FolderGit2 },
+  { id: "experience", icon: Briefcase },
+  { id: "contact", icon: Mail },
 ]
 
 function TabNav() {
+  const { ui } = useContent()
   const [active, setActive] = useState("hero")
   const [expanded, setExpanded] = useState(false)
 
@@ -64,6 +67,7 @@ function TabNav() {
         </Navbar.Brand>
 
         <div className="navbar__mobile-actions d-flex d-md-none align-items-center gap-2">
+          <LanguageToggle />
           <ThemeToggle />
           <Navbar.Toggle aria-controls="main-nav" aria-label="Ouvrir le menu de navigation" />
         </div>
@@ -81,15 +85,16 @@ function TabNav() {
                   className="d-flex align-items-center gap-2"
                 >
                   <Icon size={16} aria-hidden="true" />
-                  {tab.label}
+                  {ui.nav[tab.id]}
                 </Nav.Link>
               )
             })}
           </Nav>
         </Navbar.Collapse>
 
-        {/* toggle desktop, toujours à l'extrême droite, en dehors du Collapse */}
-        <div className="navbar__desktop-toggle d-none d-md-flex">
+        {/* toggles desktop, toujours à l'extrême droite, en dehors du Collapse */}
+        <div className="navbar__desktop-toggle d-none d-md-flex align-items-center gap-2">
+          <LanguageToggle />
           <ThemeToggle />
         </div>
       </Container>
