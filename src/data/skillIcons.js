@@ -14,6 +14,7 @@ import {
   SiCss,
   SiBootstrap,
   SiAxios,
+  SiBun,
   SiMysql,
   SiGithub,
 } from "react-icons/si"
@@ -32,6 +33,7 @@ export const SKILL_ICONS = {
   MySQL: SiMysql,
   "Git & GitHub": SiGithub,
   Canva: Palette, // icône générique : pas de nom d'export "Canva" confirmé de façon fiable
+    Bun: SiBun,
 }
 
 // Couleurs officielles de marque (optionnel, à utiliser si tu veux des icônes colorées
@@ -48,4 +50,5 @@ export const SKILL_ICON_COLORS = {
   MySQL: "#4479A1",
   "Git & GitHub": "#181717",
   Canva: "#00C4CC",
+    Bun: "#F5DE4C",
 }

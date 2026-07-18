@@ -19,7 +19,7 @@ export const skills = {
   "Front-end": ["React", "JavaScript", "TypeScript", "HTML5", "CSS3", "React-Bootstrap"],
   "Back-end & API": ["REST API / Axios", "Parse-Server"],
   "Bases de données": ["SQL Server", "MySQL"],
-  "Outils": ["Git & GitHub", "Canva"],
+  "Outils": ["Git & GitHub", "Canva", "Bun"],
 }
 
 export const projects = [

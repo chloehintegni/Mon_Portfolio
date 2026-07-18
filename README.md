@@ -1,5 +1,7 @@
 # React + Vite
 
+[![Bun](https://img.shields.io/badge/Bun-%23F5DE4C.svg?style=flat&logo=bun&logoColor=white)](https://bun.sh)
+
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
 Currently, two official plugins are available:
