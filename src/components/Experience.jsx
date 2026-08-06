@@ -57,15 +57,17 @@ function Experience() {
         <Reveal delay={experience.length * 100}>
           <Row className="justify-content-center">
             <Col xs={12} md={10} lg={8} className="text-center">
-              <h3 className="experience__sub">{ui.experience.formation}</h3>
-              <ul className="education__list list-unstyled">
-                {education.map((item) => (
-                  <li key={item.title}>
-                    <strong>{item.title}</strong>
-                    {item.school ? ` — ${item.school}` : ""} ({item.year})
-                  </li>
-                ))}
-              </ul>
+              <div className="formation-card text-center">
+                <h3 className="experience__sub">{ui.experience.formation}</h3>
+                <ul className="education__list list-unstyled">
+                  {education.map((item) => (
+                    <li key={item.title}>
+                      <strong>{item.title}</strong>
+                      {item.school ? ` — ${item.school}` : ""} ({item.year})
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Col>
           </Row>
         </Reveal>

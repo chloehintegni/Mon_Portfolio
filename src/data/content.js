@@ -7,7 +7,7 @@ export const profile = {
   location: "Porto-Novo, Bénin",
   tagline:
     "Je construis des interfaces React propres et performantes, avec un vrai goût pour les détails qui font la différence.",
-  bio: "Développeuse web junior diplômée d'une Licence en Architecture Logicielle (ESGIS Bénin). Actuellement en apprentissage avancé chez RightCom, où je contribue au frontend d'une plateforme SaaS de planification et de gestion de rendez-vous. Curieuse et rigoureuse, j'aime comprendre un problème en profondeur avant de coder la solution.",
+  bio:  "Développeuse front-end, je porte une attention particulière à la manière dont un problème se pose avant de le résoudre : identifier la cause réelle plutôt que de corriger un symptôme. Titulaire d'une Licence en Architecture Logicielle (ESGIS Bénin), j'ai récemment terminé mon apprentissage chez RightCom, où j'ai contribué au frontend d'un produit SaaS utilisé en production. Je recherche aujourd'hui une opportunité pour continuer à monter en compétence au contact d'une équipe expérimentée, sur des projets à réel impact.",
   email: "hintegnijeannemarie@gmail.com",
   phone: "+229 01 54 91 96 45",
   whatsapp: "+229 01 40 54 26 21",
@@ -27,9 +27,9 @@ export const projects = [
     id: "righttime",
     name: "RightTime",
     role: "Contribution frontend — RightCom",
-    stack: ["React", "TypeScript", "React-Bootstrap", "REST API", "i18next"],
+    stack: ["React", "TypeScript", "React-Bootstrap", "Parse Cloud Code", "i18next"],
     description:
-      "Plateforme SaaS de planification et gestion de rendez-vous. Contribution au frontend : gestion des rôles utilisateurs (RBAC), navigation contextuelle par fil d'Ariane, internationalisation FR/EN, corrections de bugs sur les modules de calendrier et de localisation.",
+      "Plateforme SaaS de planification et gestion de rendez-vous, sur laquelle j'ai travaillé au sein de l'équipe frontend : gestion des rôles utilisateurs (RBAC), navigation contextuelle par fil d'Ariane, internationalisation FR/EN, corrections de bugs sur les modules de calendrier et de localisation.",
     link: null,
   },
   {
@@ -74,10 +74,18 @@ export const experience = [
   {
     company: "RightCom Bénin",
     role: "Stagiaire développeuse Front-end",
-    period: "Oct. 2025 – Nov. 2025, Mars 2026 – Juin 2026",
+    period: "Mars 2026 – Juin 2026",
     details:
-      "Développement React avec REST API (Axios), React-Bootstrap, design responsive multi-écrans, intégration Parse-Server côté frontend.",
-    stack: ["React", "REST API / Axios", "React-Bootstrap", "Parse-Server"],
+      "Second stage : contribution au frontend des produits RightCom (dont RightTime), avec React-Bootstrap et intégration de Parse-Server / Parse Cloud Code côté frontend.",
+    stack: ["React", "React-Bootstrap", "Parse-Server", "Parse Cloud Code"],
+  },
+  {
+    company: "RightCom Bénin",
+    role: "Stagiaire développeuse Front-end",
+    period: "Oct. 2025 – Nov. 2025",
+    details:
+      "Premier stage : apprentissage de React avec consommation de REST API via Axios, React-Bootstrap, Bun, et design responsive multi-écrans.",
+    stack: ["React", "REST API", "Axios", "Bun", "React-Bootstrap"],
   },
   {
     company: "BASIA SARL",

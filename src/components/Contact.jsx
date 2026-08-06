@@ -120,41 +120,6 @@ function Contact() {
               )}
             </Form>
           </Reveal>
-
-          <Reveal as={Col} xs={12} md={5} delay={200}>
-            <div className="contact__links">
-              <a href={`mailto:${profile.email}`} className="contact__link">
-                <Mail size={18} aria-hidden="true" />
-                <span>{profile.email}</span>
-              </a>
-              <a href={`tel:${profile.phone.replace(/\s/g, "")}`} className="contact__link">
-                <Phone size={18} aria-hidden="true" />
-                <span>{profile.phone}</span>
-              </a>
-              <a
-                href={`https://wa.me/${profile.whatsapp.replace(/[\s+]/g, "")}`}
-                target="_blank"
-                rel="noreferrer"
-                className="contact__link"
-              >
-                <WhatsappIcon size={18} aria-hidden="true" />
-                <span>{ui.contact.whatsapp}</span>
-              </a>
-              <a href={profile.github} target="_blank" rel="noreferrer" className="contact__link">
-                <GithubIcon size={18} />
-                <span>GitHub</span>
-              </a>
-              <a
-                href={profile.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="contact__link"
-              >
-                <LinkedinIcon size={18} />
-                <span>LinkedIn</span>
-              </a>
-            </div>
-          </Reveal>
         </Row>
       </Container>
     </section>

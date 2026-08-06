@@ -7,7 +7,7 @@ export const profile = {
   location: "Porto-Novo, Benin",
   tagline:
     "I build clean, high-performing React interfaces, with a real eye for the details that make the difference.",
-  bio: "Junior web developer with a Professional Degree in Software Architecture (ESGIS Benin). Currently in an advanced apprenticeship at RightCom, where I contribute to the frontend of a SaaS scheduling and appointment management platform. Curious and thorough, I like to fully understand a problem before coding the solution.",
+  bio: "Front-end developer, I pay close attention to how a problem is framed before solving it: identifying the real cause rather than patching a symptom. Holder of a Professional Degree in Software Architecture (ESGIS Benin), I recently completed my apprenticeship at RightCom, where I contributed to the frontend of a SaaS product used in production. I'm now looking for an opportunity to keep growing alongside an experienced team, on projects with real impact.",
   email: "hintegnijeannemarie@gmail.com",
   phone: "+229 01 54 91 96 45",
   whatsapp: "+229 01 40 54 26 21",
@@ -27,9 +27,9 @@ export const projects = [
     id: "righttime",
     name: "RightTime",
     role: "Frontend contribution — RightCom",
-    stack: ["React", "TypeScript", "React-Bootstrap", "REST API", "i18next"],
+    stack: ["React", "TypeScript", "React-Bootstrap", "Parse Cloud Code", "i18next"],
     description:
-      "SaaS scheduling and appointment management platform. Frontend contribution: user role management (RBAC), contextual breadcrumb navigation, FR/EN internationalization, bug fixes on calendar and localization modules.",
+      "SaaS scheduling and appointment management platform that I worked on as part of the frontend team: user role management (RBAC), contextual breadcrumb navigation, FR/EN internationalization, bug fixes on calendar and localization modules.",
     link: null,
   },
   {
@@ -74,10 +74,18 @@ export const experience = [
   {
     company: "RightCom Benin",
     role: "Front-end Developer Intern",
-    period: "Oct. 2025 – Nov. 2025, Mar. 2026 – Jun. 2026",
+    period: "Mar. 2026 – Jun. 2026",
     details:
-      "React development with REST API (Axios), React-Bootstrap, responsive design across screen sizes, Parse-Server integration on the frontend side.",
-    stack: ["React", "REST API / Axios", "React-Bootstrap", "Parse-Server"],
+      "Second internship: contributed to the frontend of RightCom's products (including RightTime), using React-Bootstrap and integrating Parse-Server / Parse Cloud Code on the frontend side.",
+    stack: ["React", "React-Bootstrap", "Parse-Server", "Parse Cloud Code"],
+  },
+  {
+    company: "RightCom Benin",
+    role: "Front-end Developer Intern",
+    period: "Oct. 2025 – Nov. 2025",
+    details:
+      "First internship: learned React while consuming REST APIs via Axios, React-Bootstrap, Bun, and responsive design across screen sizes.",
+    stack: ["React", "REST API", "Axios", "Bun", "React-Bootstrap"],
   },
   {
     company: "BASIA SARL",

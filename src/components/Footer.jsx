@@ -22,7 +22,7 @@ function Footer() {
   return (
     <footer className="footer">
       <Container>
-        <Row className="footer__top g-4">
+        <Row className="footer__top g-4 justify-content-center text-center">
           <Col xs={12} md={4}>
             <p className="footer__brand">chloe-hintegni</p>
             <p className="footer__tagline">{profile.tagline}</p>
@@ -57,7 +57,7 @@ function Footer() {
             </div>
           </Col>
 
-          <Col xs={6} md={4}>
+          <Col xs={12} md={4}>
             <h3 className="footer__heading">{ui.footer.navHeading}</h3>
             <ul className="footer__list">
               {NAV_LINKS.map((link) => (
@@ -70,7 +70,7 @@ function Footer() {
             </ul>
           </Col>
 
-          <Col xs={6} md={4}>
+          <Col xs={12} md={4}>
             <h3 className="footer__heading">{ui.footer.contactHeading}</h3>
             <ul className="footer__list footer__list--contact">
               <li>
